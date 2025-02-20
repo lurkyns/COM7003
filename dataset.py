@@ -30,3 +30,9 @@ df = df.drop_duplicates()
 # Confirm duplicates are removed
 duplicate_rows_after = df.duplicated().sum()
 print(f"\nNumber of duplicate rows after removal: {duplicate_rows_after}")
+
+# Display summary statistics
+print("\nSummary Statistics:\n", df.describe())
+
+# Check distribution of loan status (target variable)
+print("\nLoan Status Distribution:\n", df["loan_status"].value_counts())
