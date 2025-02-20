@@ -1,4 +1,16 @@
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Load the dataset
+df = pd.read_csv("cleaned_credit_risk_dataset.csv") 
+
+# Features to scale
+scale_cols = ["person_income", "loan_amnt", "loan_int_rate", "loan_percent_income", "cb_person_cred_hist_length"]
+
+# Apply StandardScaler
+scaler = StandardScaler()
+df[scale_cols] = scaler.fit_transform(df[scale_cols])
+
 
 # To load the dataset
 df = pd.read_csv("credit_risk_dataset.csv")
@@ -34,3 +46,12 @@ print(f"\nNumber of duplicate rows after removal: {duplicate_rows_after}")
 # Save the cleaned dataset
 df.to_csv("cleaned_credit_risk_dataset.csv", index=False)
 
+# Drop columns that are irrelevant or highly correlated
+df = df.drop(columns=["loan_grade"])  # Loan grade is often redundant with loan amount & interest rate
+
+# Turn category data into numbers using one-hot encoding
+df = pd.get_dummies(df, columns=["person_home_ownership", "loan_intent", "cb_person_default_on_file"], drop_first=True)
+
+# Save the processed dataset
+df.to_csv("processed_credit_risk_dataset.csv", index=False)
+print("Processed dataset saved successfully.")
