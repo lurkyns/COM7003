@@ -18,8 +18,8 @@ home_ownership_status = df.groupby(["person_home_ownership", "loan_status"]).siz
 home_ownership_status.plot(kind="bar", stacked=True, figsize=(8, 5), colormap="Reds")
 
 plt.title("Loan Default Rate by Home Ownership", fontsize=14)
-plt.xlabel("Home Ownership Status", fontsize=10, color='r')
-plt.ylabel("Number of Loans", fontsize=10, color='b')
+plt.xlabel("Home Ownership Status", fontsize=10)
+plt.ylabel("Number of Loans", fontsize=10)
 plt.legend(["Fully Paid (0)", "Defaulted (1)"], title="Loan Status")
 plt.xticks(rotation=45)
 plt.show()
