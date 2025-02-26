@@ -1,5 +1,9 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+from sklearn.impute import KNNImputer
+
+# To set up the KNN Imputer
+imputer = KNNImputer(n_neighbors=5)
 
 # Load the dataset
 df = pd.read_csv("cleaned_credit_risk_dataset.csv") 
@@ -27,10 +31,12 @@ print("\nMissing Values:\n", df.isnull().sum())
 
 # To fix the FutureWarning by assigning the changes back to the DataFrame correctly
 df["person_emp_length"] = df["person_emp_length"].fillna(df["person_emp_length"].median())
-df["loan_int_rate"] = df["loan_int_rate"].fillna(df["loan_int_rate"].mean())
+
+# Imputation to 'loan_int_rate' using KNN
+df[["loan_int_rate"]] = imputer.fit_transform(df[["loan_int_rate"]])
 
 # Confirm missing values are handled
-print("\nMissing Values After Handling:\n", df.isnull().sum())
+print("\nMissing Values After KNN Imputation:\n", df.isnull().sum())
 
 # Check for duplicate rows
 duplicate_rows = df.duplicated().sum()
