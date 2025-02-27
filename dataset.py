@@ -63,15 +63,19 @@ print("Processed dataset saved successfully.")
 # Developing new, significant variables using feature engineering
 
 # How much of a person's income is taken up by the loan?
-df["debt_to_income"] = df["loan_int_rate"] / df["loan_amnt2]"]
+df["debt_to_income"] = df["loan_amnt"] / (df["person_income"] + 1)
 
 #Measures affordability
 df["loan_to_income_ratio"] = df["loan_amnt"] / df["person_income"]
+
+# Are higher loans getting higher interest rates?
+df["int_rate_ratio"] = df["loan_int_rate"] / df["loan_amnt"]
 
 #Bucket employment length into categories
 df["emp_length_category"] = pd.cut(df["person_emp_length"], bins=[0, 2, 5, 10, 20], 
  labels=["0-2 years", "3-5 years", "6-10 years", "10+ years"], 
  include_lowest=True)
+
 
 print("/New features added successfully!")
 print(df.head())
