@@ -10,7 +10,7 @@ X = df.drop(columns=["loan_status"])  # Features
 y = df["loan_status"]  # Target (0 = Fully Paid, 1 = Defaulted)
 
 # Splits into training and test sets (80% train, 20% test)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88, stratify=y)
 
 # Fixing missing columns between train and test sets
 missing_cols = set(X_train.columns) - set(X_test.columns)
@@ -19,7 +19,7 @@ for col in missing_cols:
 X_test = X_test[X_train.columns]
 
 # Apply SMOTE to balance the dataset
-smote = SMOTE(random_state=42)
+smote = SMOTE(random_state=88)
 X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
 
 # Save the training and testing data

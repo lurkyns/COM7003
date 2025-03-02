@@ -8,7 +8,7 @@ X_test = pd.read_csv("X_test.csv")
 y_test = pd.read_csv("y_test.csv")
 
 # Set up and train Random Forest Model
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+model = RandomForestClassifier(n_estimators=100, random_state=88)
 model.fit(X_train, y_train.values.ravel())
 
 # Make Predictions
