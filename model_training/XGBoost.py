@@ -76,3 +76,5 @@ plt.show()
 #Suppress all user warnings in your terminal
 import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
+
+xgb_model.save_model("best_xgboost_model.json")
