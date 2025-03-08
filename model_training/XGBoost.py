@@ -77,4 +77,13 @@ plt.show()
 import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 
+#to adjust for Bias:
+
+from sklearn.utils.class_weight import compute_sample_weight
+
+sample_weights = compute_sample_weight("balanced", y_train)
+
+xgb_model.fit(X_train, y_train, sample_weight=sample_weights)
+
 xgb_model.save_model("best_xgboost_model.json")
+print(" XGBoost model trained and saved successfully")
