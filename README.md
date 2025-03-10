@@ -75,3 +75,19 @@ To ensure ethical AI use, bias analysis was performed:
 - Checked the impact of income group & home ownership on predictions.
 - Found some bias in predictions, requiring fairness adjustments.
 - Applied demographic parity checks to detect unfair disparities.
+
+# How to run the project
+
+-Clone the Repository
+-git clone https://github.com/yourusername/Credit_Risk_Analysis.git
+cd Credit_Risk_Analysis
+-Run data preprocessing: python dataset.py
+-Train Models: python XGBoost.py, python logistic _regression.py, python random_forest.py
+-Generate predictions & evaluate: python model_comparison.py
+
+# Acknowledgments
+
+Included in the report
+
+
+
