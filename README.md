@@ -79,15 +79,10 @@ To ensure ethical AI use, bias analysis was performed:
 # How to run the project
 
 -Clone the Repository
--git clone https://github.com/yourusername/Credit_Risk_Analysis.git
-cd Credit_Risk_Analysis
+-git clone https://github.com/lurkyns/COM7003.git
 -Run data preprocessing: python dataset.py
 -Train Models: python XGBoost.py, python logistic _regression.py, python random_forest.py
 -Generate predictions & evaluate: python model_comparison.py
-
-# Acknowledgments
-
-Included in the report
 
 
 
